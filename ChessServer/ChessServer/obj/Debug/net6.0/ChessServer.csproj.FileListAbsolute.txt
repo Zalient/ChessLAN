@@ -28,3 +28,18 @@ C:\Users\dclarke\Source\Repos\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\
 C:\Users\dclarke\Source\Repos\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.pdb
 C:\Users\dclarke\Source\Repos\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.genruntimeconfig.cache
 C:\Users\dclarke\Source\Repos\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ref\ChessServer.dll
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\bin\Debug\net6.0\ChessServer.exe
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\bin\Debug\net6.0\ChessServer.deps.json
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\bin\Debug\net6.0\ChessServer.runtimeconfig.json
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\bin\Debug\net6.0\ChessServer.dll
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\bin\Debug\net6.0\ChessServer.pdb
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.csproj.AssemblyReference.cache
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.AssemblyInfoInputs.cache
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.AssemblyInfo.cs
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.csproj.CoreCompileInputs.cache
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.dll
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\refint\ChessServer.dll
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.pdb
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ChessServer.genruntimeconfig.cache
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessServer\ChessServer\obj\Debug\net6.0\ref\ChessServer.dll

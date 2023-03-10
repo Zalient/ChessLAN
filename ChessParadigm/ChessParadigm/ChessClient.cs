@@ -52,10 +52,6 @@ namespace ChessParadigm
 
                     if (message == "Started")
                     {
-                        using (MultiplayerForm multiplayerForm = new MultiplayerForm())
-                        {
-                            multiplayerForm.Close(); //Not sure if this works yet
-                        }
                         GameForm form = new GameForm();
                         Application.Run(form);
                     }

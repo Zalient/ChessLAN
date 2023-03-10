@@ -4,7 +4,7 @@ namespace ChessParadigm
     {
         static void Main(string[] args)
         {
-            MultiplayerForm form = new MultiplayerForm();
+            MultiplayerForm form = new();
             Application.Run(form);
         }
     }

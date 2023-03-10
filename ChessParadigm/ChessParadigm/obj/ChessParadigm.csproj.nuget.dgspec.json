@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zacha\\Source\\Repos\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj": {}
+    "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zacha\\Source\\Repos\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj": {
+    "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zacha\\Source\\Repos\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj",
+        "projectUniqueName": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj",
         "projectName": "ChessParadigm",
-        "projectPath": "C:\\Users\\Zacha\\Source\\Repos\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj",
-        "packagesPath": "C:\\Users\\Zacha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zacha\\Source\\Repos\\ChessLAN\\ChessParadigm\\ChessParadigm\\obj\\",
+        "projectPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj",
+        "packagesPath": "C:\\Users\\dclarke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zacha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dclarke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

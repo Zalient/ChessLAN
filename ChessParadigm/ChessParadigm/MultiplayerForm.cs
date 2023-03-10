@@ -42,13 +42,11 @@ namespace ChessParadigm
         }
         private void btnConnectLobby_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.Yes;
             client.ConnectLobby(listBoxLobbies.Items[listBoxLobbies.SelectedIndex].ToString());
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
             client.CreateLobby(txtLobbyName.Text);
-            //this.DialogResult = DialogResult.OK;
             MessageBox.Show("Waiting...");
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
