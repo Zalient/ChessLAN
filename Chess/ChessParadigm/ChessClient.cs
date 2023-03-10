@@ -27,7 +27,7 @@ namespace Chess
 
                 Console.WriteLine($"Connection with {tcpClient.Client.RemoteEndPoint} established");
 
-                receiveMsgThread = new Thread(ServerMessageHandler);
+                receiveMsgThread = new Thread(ServerMsgHandler);
                 receiveMsgThread.Start();
                 return true;
             }
@@ -36,14 +36,14 @@ namespace Chess
                 return false;
             }
         }
-        private async void ServerMessageHandler()
+        private async void ServerMsgHandler()
         {
             try
             {
                 var stream = tcpClient.GetStream();
                 while (true)
                 {
-                    var buffer = new byte[1_024];
+                    var buffer = new byte[1024];
                     int received = await stream.ReadAsync(buffer, 0, 1024);
 
                     var message = Encoding.UTF8.GetString(buffer, 0, received);
@@ -52,17 +52,21 @@ namespace Chess
 
                     if (message == "Started")
                     {
+                        using (MultiplayerForm multiplayerForm = new MultiplayerForm())
+                        {
+                            multiplayerForm.Close(); //Not sure if this works yet
+                        }
                         GameForm form = new GameForm();
                         Application.Run(form);
                     }
                     if (message.Contains("Move"))
                     {
                         string[] splittedMsg = message.Split(' ');
-                        KeyValuePair<int, int> previousMove = Board.Instance.NotationToCoordinates(splittedMsg[1]);
-                        KeyValuePair<int, int> newMove = Board.Instance.NotationToCoordinates(splittedMsg[2]);
+                        KeyValuePair<int, int> previousMove = Board.Instance.NotationToCoordinates(splittedMsg[1]); //Second component is previous move
+                        KeyValuePair<int, int> newMove = Board.Instance.NotationToCoordinates(splittedMsg[2]); //Third component is new move
                         Cell pieceCell = Board.Instance.Cells[previousMove.Key, previousMove.Value];
                         Cell targetCell = Board.Instance.Cells[newMove.Key, newMove.Value];
-                        Board.Instance.Move_Piece(pieceCell, targetCell);
+                        Board.Instance.Move_Piece(pieceCell, targetCell); //Move the pieces at these cells 
                     }
                 }
             }
@@ -71,19 +75,19 @@ namespace Chess
                 Console.WriteLine(e);
             }
         }
-        private async Task<string> WaitForMessageResponse(string msg)
+        private async Task<string> AwaitMsgResponse(string msg)
         {
             waitMsg = "";
             Console.WriteLine("WAITNULL");
-            SendMessageToServer(msg);
-            while (waitMsg == "")
+            SendMsgToServer(msg);
+            while (waitMsg == "") //Wait until response received from server
             {
                 await Task.Delay(25);
             }
             Console.WriteLine("WAITED");
             return waitMsg;
         }
-        public async void SendMessageToServer(string msg)
+        public async void SendMsgToServer(string msg)
         {
             try
             {
@@ -98,17 +102,17 @@ namespace Chess
         }
         public void CreateLobby(string name)
         {
-            SendMessageToServer($"CreateLobby {name}");
+            SendMsgToServer($"CreateLobby {name}");
             myColour = PieceColour.White;
         }
         public void ConnectLobby(string name)
         {
-            SendMessageToServer($"ConnectLobby {name}");
+            SendMsgToServer($"ConnectLobby {name}");
             myColour = PieceColour.Black;
         }
         public async Task<List<string>> GetLobbies()
         {
-            string response = await WaitForMessageResponse("GetLobbies");
+            string response = await AwaitMsgResponse("GetLobbies");
             Console.WriteLine(response);
             return new List<string>(response.Split(' ')[1].Split('|'));
         }

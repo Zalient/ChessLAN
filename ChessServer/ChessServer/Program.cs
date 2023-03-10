@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            TCPServer server = new TCPServer();
+            _ = new TCPServer(); //Start server
             Console.ReadKey();
         }
     }

@@ -20,22 +20,19 @@ namespace Chess
                 Instance = this;
             }
             this._gameForm = GameForm;
-            BuildBoard();
+            InitBoard();
         }
         public Cell SelectedCell { get; set; }
         public bool IsSelecting { get; set; }
         public PieceColour PlayerTurn { get; set; }
         public List<Piece> Pieces { get; set; }
-        public Cell[,] Cells
-        {
-            get { return _cells; }
-        }
+        public Cell[,] Cells => _cells; //Read-only
         public Piece this[int i, int j] //Add defined piece to board itself
         {
             get { return _cells[i, j].Piece; } //Access piece at cell location 
             set { _cells[i, j].Piece = value; } //Change piece to value (value forces set property to receive an argument e.g. a Rook)
         }
-        public void BuildBoard()
+        public void InitBoard()
         {
             this.Pieces = new List<Piece>();
             int left = 0;

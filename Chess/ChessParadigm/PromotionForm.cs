@@ -13,38 +13,38 @@ namespace Chess
 
             if (board.PlayerTurn == PieceColour.White)
             {
-                QueenPB.Image = ImageCollection.WHITE_QUEEN_IMG;
-                RookPB.Image = ImageCollection.WHITE_ROOK_IMG;
-                BishopPB.Image = ImageCollection.WHITE_BISHOP_IMG;
-                KnightPB.Image = ImageCollection.WHITE_KNIGHT_IMG;
+                picBoxQueen.Image = ImageCollection.WHITE_QUEEN_IMG;
+                picBoxRook.Image = ImageCollection.WHITE_ROOK_IMG;
+                picBoxBishop.Image = ImageCollection.WHITE_BISHOP_IMG;
+                picBoxKnight.Image = ImageCollection.WHITE_KNIGHT_IMG;
             }
             else
             {
-                QueenPB.Image = ImageCollection.BLACK_QUEEN_IMG;
-                RookPB.Image = ImageCollection.BLACK_ROOK_IMG;
-                BishopPB.Image = ImageCollection.BLACK_BISHOP_IMG;
-                KnightPB.Image = ImageCollection.BLACK_KNIGHT_IMG;
+                picBoxQueen.Image = ImageCollection.BLACK_QUEEN_IMG;
+                picBoxRook.Image = ImageCollection.BLACK_ROOK_IMG;
+                picBoxBishop.Image = ImageCollection.BLACK_BISHOP_IMG;
+                picBoxKnight.Image = ImageCollection.BLACK_KNIGHT_IMG;
             }
         }
         private PieceColour Colour { get; set; }
         private Cell Cell { get; set; }
         public Piece SelectedPiece { get; private set; }
-        private void QueenPB_Click(object sender, EventArgs e)
+        private void picBoxQueen_Click(object sender, EventArgs e)
         {
             SelectedPiece = new Queen(this.Cell, this.Colour);
             Close();
         }
-        private void RookPB_Click(object sender, EventArgs e)
+        private void picBoxRook_Click(object sender, EventArgs e)
         {
             SelectedPiece = new Rook(this.Cell, this.Colour);
             Close();
         }
-        private void BishopPB_Click(object sender, EventArgs e)
+        private void picBoxBishop_Click(object sender, EventArgs e)
         {
             SelectedPiece = new Bishop(this.Cell, this.Colour);
             Close();
         }
-        private void KnightPB_Click(object sender, EventArgs e)
+        private void picBoxKnight_Click(object sender, EventArgs e)
         {
             SelectedPiece = new Knight(this.Cell, this.Colour);
             Close();

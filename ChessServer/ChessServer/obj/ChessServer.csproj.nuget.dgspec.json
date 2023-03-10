@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\NEA\\ChessParadigmOnline\\ChessServer\\ChessServer\\ChessServer.csproj": {}
+    "C:\\Users\\dclarke\\Source\\Repos\\ChessLAN\\ChessServer\\ChessServer\\ChessServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\NEA\\ChessParadigmOnline\\ChessServer\\ChessServer\\ChessServer.csproj": {
+    "C:\\Users\\dclarke\\Source\\Repos\\ChessLAN\\ChessServer\\ChessServer\\ChessServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\NEA\\ChessParadigmOnline\\ChessServer\\ChessServer\\ChessServer.csproj",
+        "projectUniqueName": "C:\\Users\\dclarke\\Source\\Repos\\ChessLAN\\ChessServer\\ChessServer\\ChessServer.csproj",
         "projectName": "ChessServer",
-        "projectPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\NEA\\ChessParadigmOnline\\ChessServer\\ChessServer\\ChessServer.csproj",
+        "projectPath": "C:\\Users\\dclarke\\Source\\Repos\\ChessLAN\\ChessServer\\ChessServer\\ChessServer.csproj",
         "packagesPath": "C:\\Users\\dclarke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\NEA\\ChessParadigmOnline\\ChessServer\\ChessServer\\obj\\",
+        "outputPath": "C:\\Users\\dclarke\\Source\\Repos\\ChessLAN\\ChessServer\\ChessServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dclarke\\AppData\\Roaming\\NuGet\\NuGet.Config",

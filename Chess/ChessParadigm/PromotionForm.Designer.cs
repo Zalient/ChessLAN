@@ -28,80 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.QueenPB = new System.Windows.Forms.PictureBox();
-            this.RookPB = new System.Windows.Forms.PictureBox();
-            this.BishopPB = new System.Windows.Forms.PictureBox();
-            this.KnightPB = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.QueenPB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RookPB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BishopPB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KnightPB)).BeginInit();
-            this.SuspendLayout();
+            picBoxQueen = new PictureBox();
+            picBoxRook = new PictureBox();
+            picBoxBishop = new PictureBox();
+            picBoxKnight = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picBoxQueen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxRook).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxBishop).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxKnight).BeginInit();
+            SuspendLayout();
             // 
-            // QueenPB
+            // picBoxQueen
             // 
-            this.QueenPB.Location = new System.Drawing.Point(18, 18);
-            this.QueenPB.Name = "QueenPB";
-            this.QueenPB.Size = new System.Drawing.Size(150, 150);
-            this.QueenPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.QueenPB.TabIndex = 0;
-            this.QueenPB.TabStop = false;
-            this.QueenPB.Click += new System.EventHandler(this.QueenPB_Click);
+            picBoxQueen.Location = new Point(18, 18);
+            picBoxQueen.Name = "picBoxQueen";
+            picBoxQueen.Size = new Size(150, 150);
+            picBoxQueen.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBoxQueen.TabIndex = 0;
+            picBoxQueen.TabStop = false;
+            picBoxQueen.Click += picBoxQueen_Click;
             // 
-            // RookPB
+            // picBoxRook
             // 
-            this.RookPB.Location = new System.Drawing.Point(174, 18);
-            this.RookPB.Name = "RookPB";
-            this.RookPB.Size = new System.Drawing.Size(150, 150);
-            this.RookPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.RookPB.TabIndex = 1;
-            this.RookPB.TabStop = false;
-            this.RookPB.Click += new System.EventHandler(this.RookPB_Click);
+            picBoxRook.Location = new Point(174, 18);
+            picBoxRook.Name = "picBoxRook";
+            picBoxRook.Size = new Size(150, 150);
+            picBoxRook.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBoxRook.TabIndex = 1;
+            picBoxRook.TabStop = false;
+            picBoxRook.Click += picBoxRook_Click;
             // 
-            // BishopPB
+            // picBoxBishop
             // 
-            this.BishopPB.Location = new System.Drawing.Point(330, 18);
-            this.BishopPB.Name = "BishopPB";
-            this.BishopPB.Size = new System.Drawing.Size(150, 150);
-            this.BishopPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BishopPB.TabIndex = 2;
-            this.BishopPB.TabStop = false;
-            this.BishopPB.Click += new System.EventHandler(this.BishopPB_Click);
+            picBoxBishop.Location = new Point(330, 18);
+            picBoxBishop.Name = "picBoxBishop";
+            picBoxBishop.Size = new Size(150, 150);
+            picBoxBishop.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBoxBishop.TabIndex = 2;
+            picBoxBishop.TabStop = false;
+            picBoxBishop.Click += picBoxBishop_Click;
             // 
-            // KnightPB
+            // picBoxKnight
             // 
-            this.KnightPB.Location = new System.Drawing.Point(486, 18);
-            this.KnightPB.Name = "KnightPB";
-            this.KnightPB.Size = new System.Drawing.Size(150, 150);
-            this.KnightPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.KnightPB.TabIndex = 3;
-            this.KnightPB.TabStop = false;
-            this.KnightPB.Click += new System.EventHandler(this.KnightPB_Click);
+            picBoxKnight.Location = new Point(486, 18);
+            picBoxKnight.Name = "picBoxKnight";
+            picBoxKnight.Size = new Size(150, 150);
+            picBoxKnight.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBoxKnight.TabIndex = 3;
+            picBoxKnight.TabStop = false;
+            picBoxKnight.Click += picBoxKnight_Click;
             // 
             // PromotionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 176);
-            this.Controls.Add(this.KnightPB);
-            this.Controls.Add(this.BishopPB);
-            this.Controls.Add(this.RookPB);
-            this.Controls.Add(this.QueenPB);
-            this.Name = "PromotionForm";
-            this.Text = "PromotionForm";
-            ((System.ComponentModel.ISupportInitialize)(this.QueenPB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RookPB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BishopPB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KnightPB)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(653, 176);
+            Controls.Add(picBoxKnight);
+            Controls.Add(picBoxBishop);
+            Controls.Add(picBoxRook);
+            Controls.Add(picBoxQueen);
+            Name = "PromotionForm";
+            Text = "PromotionForm";
+            ((System.ComponentModel.ISupportInitialize)picBoxQueen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxRook).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxBishop).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxKnight).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox QueenPB;
-        private PictureBox RookPB;
-        private PictureBox BishopPB;
-        private PictureBox KnightPB;
+        private PictureBox picBoxQueen;
+        private PictureBox picBoxRook;
+        private PictureBox picBoxBishop;
+        private PictureBox picBoxKnight;
     }
 }

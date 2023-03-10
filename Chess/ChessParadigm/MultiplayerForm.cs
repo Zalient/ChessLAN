@@ -21,46 +21,48 @@ namespace Chess
         {
             if (connected)
             {
-                Status.Text = "Connected";
-                Status.ForeColor = Color.Green;
-                CreateBtn.Enabled = true;
-                LobbyNameBox.Enabled = true;
+                lblStatus.Text = "Connected";
+                lblStatus.ForeColor = Color.Green;
+                btnCreate.Enabled = true;
+                txtLobbyName.Enabled = true;
             }
             else
             {
-                CreateBtn.Enabled = false;
-                LobbyNameBox.Enabled = false;
-                Status.Text = "Offline";
-                Status.ForeColor = Color.Red;
+                btnCreate.Enabled = false;
+                txtLobbyName.Enabled = false;
+                lblStatus.Text = "Offline";
+                lblStatus.ForeColor = Color.Red;
             }
         }
         private async void RefreshLobbyList()
         {
-            LobbyList.Items.Clear();
+            listBoxLobbies.Items.Clear();
             List<string> lobby = await client.GetLobbies();
-            LobbyList.Items.AddRange(lobby.ToArray());
+            listBoxLobbies.Items.AddRange(lobby.ToArray());
         }
-        private void ConnectLobbyBtn_Click(object sender, EventArgs e)
+        private void btnConnectLobby_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
-            client.ConnectLobby(LobbyList.Items[LobbyList.SelectedIndex].ToString());
+            //this.DialogResult = DialogResult.Yes;
+            client.ConnectLobby(listBoxLobbies.Items[listBoxLobbies.SelectedIndex].ToString());
         }
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
-            client.CreateLobby(LobbyNameBox.Text);
-            this.DialogResult = DialogResult.OK;
+            client.CreateLobby(txtLobbyName.Text);
+            //this.DialogResult = DialogResult.OK;
             MessageBox.Show("Waiting...");
         }
-        private async void RefreshBtn_Click(object sender, EventArgs e)
+        private async void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshLobbyList();
         }
-        private async void ConnectServerBtn_Click(object sender, EventArgs e)
+        private async void btnConnectServer_Click(object sender, EventArgs e)
         {
-            if (client != null && client.IsConnected)
+            if (client != null && client.IsConnected) 
+            {
                 return;
-            client = new ChessClient();
-            if (await client.Connect(HostIP.Text))
+            }
+            client = new ChessClient(); //New client if no client connected already
+            if (await client.Connect(txtHostIP.Text)) //If client has connected
             {
                 SetConnectionStatus(true);
                 RefreshLobbyList();
@@ -70,9 +72,9 @@ namespace Chess
                 SetConnectionStatus(false);
             }
         }
-        private void LobbyList_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxLobbies_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ConnectLobbyBtn.Enabled = true;
+            btnConnectLobby.Enabled = true;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ChessServer
 {
     public enum PieceColour { White, Black }
-    public class LobbyMember
+    public class LobbyMember //Create a unique member for each player
     {
         public readonly TcpClient tcpClient;
         public readonly PieceColour colour;

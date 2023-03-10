@@ -16,33 +16,27 @@ namespace ChessServer
         public readonly string lobbyName;
         public readonly int lobbyId;
 
-        public Lobby(TCPServer server, TcpClient player1, string lobbyName, int lobbyId)
+        public Lobby(TCPServer server, TcpClient player1, string lobbyName)
         {
             this._server = server;
-            this.player1 = new LobbyMember(player1, PieceColour.White);
+            this.player1 = new LobbyMember(player1, PieceColour.White); //Player 1 plays as White
             this.lobbyName = lobbyName;
-            this.lobbyId = lobbyId;
             this.isStarted = false;
         }
         public void SecondPlayerConnect(TcpClient player2)
         {
-            this.player2 = new LobbyMember(player2, PieceColour.Black);
+            this.player2 = new LobbyMember(player2, PieceColour.Black); //Player 2 plays as Black
             isStarted = true;
 
-            _server.SendMessageToClient(player1.tcpClient, "Started");
-            _server.SendMessageToClient(player2, "Started");
+            _server.SendMsgToClient(player1.tcpClient, "Started");
+            _server.SendMsgToClient(player2, "Started"); //Game starts on both devices
         }
-        public void MoveHandler(TcpClient tcpClient, string from, string to)
+        public void MoveHandler(TcpClient tcpClient, string previousMove, string newMove)
         {
-            var sender = tcpClient == player1.tcpClient ? player1 : player2;
-            var receiver = sender == player1 ? player2 : player1;
+            var sender = tcpClient == player1.tcpClient ? player1 : player2; //If tcp client is player 1's then they sent the move
+            var receiver = sender == player1 ? player2 : player1; //If sender player 1 then receiver must be player 2
 
-            _server.SendMessageToClient(receiver.tcpClient, $"Move {from} {to}");
-        }
-        public void GameOverHandler(TcpClient tcpClient)
-        {
-            var sender = tcpClient == player1.tcpClient ? player1 : player2;
-            var receiver = sender == player1 ? player2 : player1;
+            _server.SendMsgToClient(receiver.tcpClient, $"Move {previousMove} {newMove}"); //Send move to receiver's client
         }
     }
 }

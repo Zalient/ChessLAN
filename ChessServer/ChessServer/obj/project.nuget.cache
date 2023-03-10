@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SI+LfNHMNCYO7iCPV86fteH/od9+OUQ9KG57U39b54Cve0hZJGgJxt5MQTJ7X0b6SiFaMaaJS0KNBzIqPATyag==",
+  "dgSpecHash": "ySYzHGPyOMRWTu7qcNEfD/rooilw9DWtddp2xDauwWmpU4YjqLXzc4FopCTpRRocnPtXzwY2qMLLatcJVUyMMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\NEA\\ChessParadigmOnline\\ChessServer\\ChessServer\\ChessServer.csproj",
+  "projectFilePath": "C:\\Users\\dclarke\\Source\\Repos\\ChessLAN\\ChessServer\\ChessServer\\ChessServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -12,7 +12,7 @@ namespace ChessServer
     {
         private TcpListener server;
         private Thread connectionHandler;
-        private List<Thread> messageHandlers = new List<Thread>();
+        private List<Thread> msgHandlers = new List<Thread>();
         private List<TcpClient> _clients = new List<TcpClient>();
         private List<Lobby> _lobbies = new List<Lobby>();
         public int ActiveConnectionsCount => _clients.Count;
@@ -20,14 +20,14 @@ namespace ChessServer
         public List<Lobby> Lobbies => _lobbies;
         public TCPServer()
         {
-            StartServer();
+            InitServer();
         }
-        private void StartServer()
+        private void InitServer()
         {
-            server = new TcpListener(IPAddress.Any, 8888);
+            server = new TcpListener(IPAddress.Any, 8888); //Server listens for connection attempts on host IP at port 8888
             server.Start();
-            Console.WriteLine("Server has been started on " + IPAddress.Any.ToString());
-            CommandHandler.InitCommandHandler(this);
+            Console.WriteLine("Server has been started on " + IPAddress.Any.ToString()); //Server started on host IP
+            CommandHandler.InitHandler(this);
             connectionHandler = new Thread(HandleClientConnection);
             connectionHandler.Start();
         }
@@ -35,17 +35,17 @@ namespace ChessServer
         {
             while (true)
             {
-                var tcpClient = await server.AcceptTcpClientAsync();
+                var tcpClient = await server.AcceptTcpClientAsync(); //Tcp client is the accepted connection request
                 Console.WriteLine($"Connection: {tcpClient.Client.RemoteEndPoint}");
                 _clients.Add(tcpClient);
 
-                Thread msgHandler = new Thread(() => HandleMessagesFromClient(tcpClient));
+                Thread msgHandler = new Thread(() => HandleClientMsgs(tcpClient));
                 msgHandler.Name = tcpClient.Client.RemoteEndPoint.ToString();
                 msgHandler.Start();
-                messageHandlers.Add(msgHandler);
+                msgHandlers.Add(msgHandler);
             }
         }
-        private async void HandleMessagesFromClient(TcpClient client)
+        private async void HandleClientMsgs(TcpClient client)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace ChessServer
                     var buffer = new byte[1024];
                     int received = await stream.ReadAsync(buffer, 0, 1024);
 
-                    var message = Encoding.UTF8.GetString(buffer, 0, received);
+                    var message = Encoding.UTF8.GetString(buffer, 0, received); //Decode sequence of bytes to a message
                     Console.WriteLine($"Message received: \"{message}\" from: {client.Client.RemoteEndPoint}");
                     CommandHandler.Handler(message, client);
                 }
@@ -66,29 +66,28 @@ namespace ChessServer
                 _clients.Remove(client);
             }
         }
-        public async void SendMessageToClient(TcpClient client, string msg)
+        public async void SendMsgToClient(TcpClient client, string msg) //After sending message to server, server has to send message back to other client
         {
             try
             {
                 var stream = client.GetStream();
                 byte[] byteMsg = Encoding.UTF8.GetBytes(msg);
-                await stream.WriteAsync(byteMsg, 0, byteMsg.Length);
+                await stream.WriteAsync(byteMsg, 0, byteMsg.Length); //Send message
             }
             catch (Exception e)
             {
                 Console.WriteLine($"Cant send message to {client.Client.RemoteEndPoint}\nwith err: {e.Message}");
             }
         }
-        public void CreateLobby(TcpClient creator, string name)
+        public void CreateLobby(TcpClient lobbyHost, string lobbyName)
         {
-            Lobby newLobby = new Lobby(this, creator, name, _lobbies.Count);
-            Console.WriteLine($"Created Lobby {name} by {creator.Client.RemoteEndPoint}");
-            _lobbies.Add(newLobby);
+            Lobby lobby = new Lobby(this, lobbyHost, lobbyName); //Create new lobby
+            Console.WriteLine($"Created Lobby {lobbyName} by {lobbyHost.Client.RemoteEndPoint}");
+            _lobbies.Add(lobby); //Add lobby to lobby list
         }
-
-        public string[] GetAvailableLobbies()
+        public string[] GetLobbies()
         {
-            return _lobbies.FindAll(x => !x.isStarted).Select(x => x.lobbyName).ToArray();
+            return _lobbies.FindAll(x => !x.isStarted).Select(x => x.lobbyName).ToArray(); //Find lobbies that have been created but have not started
         }
     }
 }
