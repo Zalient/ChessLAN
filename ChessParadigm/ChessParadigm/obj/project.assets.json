@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj",
-      "projectName": "ChessParadigm",
-      "projectPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\ChessParadigm.csproj",
+      "projectUniqueName": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\Chess.csproj",
+      "projectName": "Chess",
+      "projectPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\Chess.csproj",
       "packagesPath": "C:\\Users\\dclarke\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\dclarke\\OneDrive - Hills Road Sixth Form College\\Computer Science\\GitHub\\ChessLAN\\ChessParadigm\\ChessParadigm\\obj\\",
       "projectStyle": "PackageReference",

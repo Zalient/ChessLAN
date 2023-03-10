@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChessParadigm
+namespace Chess
 {
     public partial class MultiplayerForm : Form
     {

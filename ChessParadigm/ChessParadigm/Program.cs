@@ -1,4 +1,4 @@
-namespace ChessParadigm
+namespace Chess
 {
     internal class Program
     {

@@ -1,6 +1,6 @@
-﻿using ChessParadigm.Pieces;
+﻿using Chess.Pieces;
 
-namespace ChessParadigm
+namespace Chess
 {
     public partial class PromotionForm : Form
     {

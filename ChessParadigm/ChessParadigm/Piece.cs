@@ -1,4 +1,4 @@
-﻿namespace ChessParadigm
+﻿namespace Chess
 {
     public enum PieceColour { White, Black };
     public class Piece

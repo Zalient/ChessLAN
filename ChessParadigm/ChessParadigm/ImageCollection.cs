@@ -1,6 +1,6 @@
-﻿using ChessParadigm.Properties;
+﻿using Chess.Properties;
 
-namespace ChessParadigm
+namespace Chess
 {
     public class ImageCollection
     {

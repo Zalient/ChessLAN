@@ -1,9 +1,9 @@
-﻿using ChessParadigm.Pieces;
+﻿using Chess.Pieces;
 using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Xml;
 
-namespace ChessParadigm
+namespace Chess
 {
     public class Board
     {
