@@ -12,11 +12,12 @@ namespace Chess
 {
     public partial class MultiplayerForm : Form
     {
-        public ChessClient client;
+        private ChessClient _client;
         public MultiplayerForm()
         {
             InitializeComponent();
         }
+        public ChessClient Client => _client;
         public void SetConnectionStatus(bool connected)
         {
             if (connected)
@@ -37,17 +38,19 @@ namespace Chess
         private async void RefreshLobbyList()
         {
             listBoxLobbies.Items.Clear();
-            List<string> lobby = await client.GetLobbies();
+            List<string> lobby = await _client.GetLobbies();
             listBoxLobbies.Items.AddRange(lobby.ToArray());
         }
         private void btnConnectLobby_Click(object sender, EventArgs e)
         {
-            client.ConnectLobby(listBoxLobbies.Items[listBoxLobbies.SelectedIndex].ToString());
+            this.DialogResult = DialogResult.Yes;
+            _client.ConnectLobby(listBoxLobbies.Items[listBoxLobbies.SelectedIndex].ToString());
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            client.CreateLobby(txtLobbyName.Text);
+            this.DialogResult = DialogResult.OK;
             MessageBox.Show("Waiting...");
+            _client.CreateLobby(txtLobbyName.Text);
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -55,12 +58,12 @@ namespace Chess
         }
         private async void btnConnectServer_Click(object sender, EventArgs e)
         {
-            if (client != null && client.IsConnected) 
+            if (_client != null && _client.IsConnected) 
             {
                 return;
             }
-            client = new ChessClient(); //New client if no client connected already
-            if (await client.Connect(txtHostIP.Text)) //If client has connected
+            _client = new ChessClient(); //New client if no client connected already
+            if (await _client.Connect(txtHostIP.Text)) //If client has connected
             {
                 SetConnectionStatus(true);
                 RefreshLobbyList();

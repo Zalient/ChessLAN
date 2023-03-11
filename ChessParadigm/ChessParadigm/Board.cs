@@ -7,6 +7,7 @@ namespace Chess
 {
     public class Board
     {
+        private ChessClient _chessClient;
         public static Board Instance;
         protected int _cellHeight = 70;
         protected int _cellWidth = 70;
@@ -15,6 +16,20 @@ namespace Chess
 
         public Board(Form GameForm)
         {
+            using (var form = new MultiplayerForm())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK) // User create lobby
+                {
+                    _chessClient = form.Client;
+                    PlayerTurn = PieceColour.White;
+                }
+                if (result == DialogResult.Yes) // User connect lobby 
+                {
+                    _chessClient = form.Client;
+                    PlayerTurn = PieceColour.Black;
+                }
+            }
             if (Instance == null)
             {
                 Instance = this;
@@ -22,6 +37,7 @@ namespace Chess
             this._gameForm = GameForm;
             InitBoard();
         }
+        public ChessClient ChessClient => _chessClient; 
         public Cell SelectedCell { get; set; }
         public bool IsSelecting { get; set; }
         public PieceColour PlayerTurn { get; set; }
@@ -72,6 +88,9 @@ namespace Chess
                     colour = CellColour.White;
                 }
             }
+        }
+        public void InitPieces()
+        {
             //Add pieces to board
 
             ////Stalemate check

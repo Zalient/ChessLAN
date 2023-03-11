@@ -11,22 +11,20 @@ namespace Chess
     {
         private TcpClient tcpClient;
         private Thread receiveMsgThread;
-        public PieceColour myColour;
         public bool IsConnected { get { return tcpClient != null && tcpClient.Connected; } }
         private string waitMsg;
         public async Task<bool> Connect(string ip)
         {
             try
             {
-                tcpClient = new TcpClient();
-                Console.WriteLine("Client started");
+                tcpClient = new TcpClient(); //Start client
                 await tcpClient.ConnectAsync(ip, 8888);
-
                 if (!tcpClient.Connected)
+                {
                     return false;
+                }
 
-                Console.WriteLine($"Connection with {tcpClient.Client.RemoteEndPoint} established");
-
+                //Connection established
                 receiveMsgThread = new Thread(ServerMsgHandler);
                 receiveMsgThread.Start();
                 return true;
@@ -48,12 +46,13 @@ namespace Chess
 
                     var message = Encoding.UTF8.GetString(buffer, 0, received);
                     waitMsg = message;
-                    Console.WriteLine($"Message received from server: \"{message}\"");
 
+                    //Message received from server
                     if (message == "Started")
                     {
                         GameForm form = new GameForm();
                         Application.Run(form);
+                        Board.Instance.InitPieces();
                     }
                     if (message.Contains("Move"))
                     {
@@ -74,13 +73,12 @@ namespace Chess
         private async Task<string> AwaitMsgResponse(string msg)
         {
             waitMsg = "";
-            Console.WriteLine("WAITNULL");
             SendMsgToServer(msg);
             while (waitMsg == "") //Wait until response received from server
             {
                 await Task.Delay(25);
             }
-            Console.WriteLine("WAITED");
+            //Waited
             return waitMsg;
         }
         public async void SendMsgToServer(string msg)
@@ -99,12 +97,12 @@ namespace Chess
         public void CreateLobby(string name)
         {
             SendMsgToServer($"CreateLobby {name}");
-            myColour = PieceColour.White;
+            Board.Instance.PlayerTurn = PieceColour.White;
         }
         public void ConnectLobby(string name)
         {
             SendMsgToServer($"ConnectLobby {name}");
-            myColour = PieceColour.Black;
+            Board.Instance.PlayerTurn = PieceColour.Black;
         }
         public async Task<List<string>> GetLobbies()
         {

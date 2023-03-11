@@ -5,6 +5,7 @@ namespace Chess
     public enum CellColour { White, Black };
     public class Cell : PictureBox
     {
+        private ChessClient chessClient = Board.Instance.ChessClient;
         public Cell(int x, int y, CellColour colour, Board board, Piece piece = null)
         {
             X = x;
@@ -125,7 +126,6 @@ namespace Chess
         }
         private void OnMouse_Click(object sender, MouseEventArgs e)
         {
-            ChessClient chessClient = new ChessClient();
             Cell cell = (Cell)sender;
             Board board = cell.BoardPtr;
             if (board.IsSelecting == true && cell.IsMoveSelected == false)

@@ -4,7 +4,7 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            MultiplayerForm form = new();
+            GameForm form = new();
             Application.Run(form);
         }
     }
