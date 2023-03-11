@@ -57,7 +57,7 @@ namespace ChessServer
 
                     var message = Encoding.UTF8.GetString(buffer, 0, received); //Decode sequence of bytes to a message
                     Console.WriteLine($"Message received: \"{message}\" from: {client.Client.RemoteEndPoint}");
-                    CommandHandler.Handler(message, client);
+                    CommandHandler.Handler(message, client); //Use command handler to decide what the message should do
                 }
             }
             catch

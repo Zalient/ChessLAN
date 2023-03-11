@@ -48,7 +48,7 @@ namespace Chess
 
                     var message = Encoding.UTF8.GetString(buffer, 0, received);
                     waitMsg = message;
-                    Console.WriteLine($"Message received: \"{message}\"");
+                    Console.WriteLine($"Message received from server: \"{message}\"");
 
                     if (message == "Started")
                     {
