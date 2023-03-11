@@ -35,6 +35,7 @@ namespace Chess
                 Instance = this;
             }
             this._gameForm = GameForm;
+            this.ChessClient = Helper.ChessClient;
             InitBoard();
         }
         public ChessClient ChessClient => _chessClient; 

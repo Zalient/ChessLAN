@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBoxLobbies = new ListBox();
+            lstLobbies = new ListBox();
             label1 = new Label();
             txtHostIP = new TextBox();
             btnConnectServer = new Button();
@@ -41,15 +41,15 @@
             btnRefresh = new Button();
             SuspendLayout();
             // 
-            // listBoxLobbies
+            // lstLobbies
             // 
-            listBoxLobbies.FormattingEnabled = true;
-            listBoxLobbies.ItemHeight = 25;
-            listBoxLobbies.Location = new Point(26, 12);
-            listBoxLobbies.Name = "listBoxLobbies";
-            listBoxLobbies.Size = new Size(438, 429);
-            listBoxLobbies.TabIndex = 0;
-            listBoxLobbies.SelectedIndexChanged += listBoxLobbies_SelectedIndexChanged;
+            lstLobbies.FormattingEnabled = true;
+            lstLobbies.ItemHeight = 25;
+            lstLobbies.Location = new Point(26, 12);
+            lstLobbies.Name = "lstLobbies";
+            lstLobbies.Size = new Size(438, 429);
+            lstLobbies.TabIndex = 0;
+            lstLobbies.SelectedIndexChanged += lstLobbies_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -160,7 +160,7 @@
             Controls.Add(btnConnectServer);
             Controls.Add(txtHostIP);
             Controls.Add(label1);
-            Controls.Add(listBoxLobbies);
+            Controls.Add(lstLobbies);
             Name = "MultiplayerForm";
             Text = "MultiplayerForm";
             ResumeLayout(false);
@@ -169,7 +169,7 @@
 
         #endregion
 
-        private ListBox listBoxLobbies;
+        private ListBox lstLobbies;
         private Label label1;
         private TextBox txtHostIP;
         private Button btnConnectServer;

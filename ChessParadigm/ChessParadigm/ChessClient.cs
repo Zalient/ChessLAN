@@ -9,6 +9,7 @@ namespace Chess
 {
     public class ChessClient
     {
+        private PieceColour myColour;
         private TcpClient tcpClient;
         private Thread receiveMsgThread;
         public bool IsConnected { get { return tcpClient != null && tcpClient.Connected; } }
@@ -65,10 +66,7 @@ namespace Chess
                     }
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            catch (Exception) { }
         }
         private async Task<string> AwaitMsgResponse(string msg)
         {
@@ -89,20 +87,17 @@ namespace Chess
                 byte[] byteMsg = Encoding.UTF8.GetBytes(msg);
                 await stream.WriteAsync(byteMsg, 0, byteMsg.Length);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Cant send message to server\nwith err: {e.Message}");
-            }
+            catch (Exception) { }
         }
         public void CreateLobby(string name)
         {
+            Helper.ChessClient = this;
             SendMsgToServer($"CreateLobby {name}");
-            Board.Instance.PlayerTurn = PieceColour.White;
         }
         public void ConnectLobby(string name)
         {
+            Helper.ChessClient = this;
             SendMsgToServer($"ConnectLobby {name}");
-            Board.Instance.PlayerTurn = PieceColour.Black;
         }
         public async Task<List<string>> GetLobbies()
         {

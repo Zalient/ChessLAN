@@ -28,79 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            picBoxQueen = new PictureBox();
-            picBoxRook = new PictureBox();
-            picBoxBishop = new PictureBox();
-            picBoxKnight = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)picBoxQueen).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picBoxRook).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picBoxBishop).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picBoxKnight).BeginInit();
+            pbQueen = new PictureBox();
+            pbRook = new PictureBox();
+            pbBishop = new PictureBox();
+            pbKnight = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbQueen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbRook).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbBishop).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbKnight).BeginInit();
             SuspendLayout();
             // 
-            // picBoxQueen
+            // pbQueen
             // 
-            picBoxQueen.Location = new Point(18, 18);
-            picBoxQueen.Name = "picBoxQueen";
-            picBoxQueen.Size = new Size(150, 150);
-            picBoxQueen.SizeMode = PictureBoxSizeMode.StretchImage;
-            picBoxQueen.TabIndex = 0;
-            picBoxQueen.TabStop = false;
-            picBoxQueen.Click += picBoxQueen_Click;
+            pbQueen.Location = new Point(18, 18);
+            pbQueen.Name = "pbQueen";
+            pbQueen.Size = new Size(150, 150);
+            pbQueen.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbQueen.TabIndex = 0;
+            pbQueen.TabStop = false;
+            pbQueen.Click += pbQueen_Click;
             // 
-            // picBoxRook
+            // pbRook
             // 
-            picBoxRook.Location = new Point(174, 18);
-            picBoxRook.Name = "picBoxRook";
-            picBoxRook.Size = new Size(150, 150);
-            picBoxRook.SizeMode = PictureBoxSizeMode.StretchImage;
-            picBoxRook.TabIndex = 1;
-            picBoxRook.TabStop = false;
-            picBoxRook.Click += picBoxRook_Click;
+            pbRook.Location = new Point(174, 18);
+            pbRook.Name = "pbRook";
+            pbRook.Size = new Size(150, 150);
+            pbRook.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbRook.TabIndex = 1;
+            pbRook.TabStop = false;
+            pbRook.Click += pbRook_Click;
             // 
-            // picBoxBishop
+            // pbBishop
             // 
-            picBoxBishop.Location = new Point(330, 18);
-            picBoxBishop.Name = "picBoxBishop";
-            picBoxBishop.Size = new Size(150, 150);
-            picBoxBishop.SizeMode = PictureBoxSizeMode.StretchImage;
-            picBoxBishop.TabIndex = 2;
-            picBoxBishop.TabStop = false;
-            picBoxBishop.Click += picBoxBishop_Click;
+            pbBishop.Location = new Point(330, 18);
+            pbBishop.Name = "pbBishop";
+            pbBishop.Size = new Size(150, 150);
+            pbBishop.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbBishop.TabIndex = 2;
+            pbBishop.TabStop = false;
+            pbBishop.Click += pbBishop_Click;
             // 
-            // picBoxKnight
+            // pbKnight
             // 
-            picBoxKnight.Location = new Point(486, 18);
-            picBoxKnight.Name = "picBoxKnight";
-            picBoxKnight.Size = new Size(150, 150);
-            picBoxKnight.SizeMode = PictureBoxSizeMode.StretchImage;
-            picBoxKnight.TabIndex = 3;
-            picBoxKnight.TabStop = false;
-            picBoxKnight.Click += picBoxKnight_Click;
+            pbKnight.Location = new Point(486, 18);
+            pbKnight.Name = "pbKnight";
+            pbKnight.Size = new Size(150, 150);
+            pbKnight.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbKnight.TabIndex = 3;
+            pbKnight.TabStop = false;
+            pbKnight.Click += pbKnight_Click;
             // 
             // PromotionForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(653, 176);
-            Controls.Add(picBoxKnight);
-            Controls.Add(picBoxBishop);
-            Controls.Add(picBoxRook);
-            Controls.Add(picBoxQueen);
+            Controls.Add(pbKnight);
+            Controls.Add(pbBishop);
+            Controls.Add(pbRook);
+            Controls.Add(pbQueen);
             Name = "PromotionForm";
             Text = "PromotionForm";
-            ((System.ComponentModel.ISupportInitialize)picBoxQueen).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picBoxRook).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picBoxBishop).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picBoxKnight).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbQueen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbRook).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbBishop).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbKnight).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox picBoxQueen;
-        private PictureBox picBoxRook;
-        private PictureBox picBoxBishop;
-        private PictureBox picBoxKnight;
+        private PictureBox pbQueen;
+        private PictureBox pbRook;
+        private PictureBox pbBishop;
+        private PictureBox pbKnight;
     }
 }

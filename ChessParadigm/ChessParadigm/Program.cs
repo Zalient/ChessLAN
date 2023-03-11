@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 namespace Chess
 {
     internal class Program
@@ -9,3 +10,10 @@ namespace Chess
         }
     }
 }
+=======
+using Chess;
+using System.Drawing;
+
+MultiplayerForm form = new();
+Application.Run(form);
+>>>>>>> Stashed changes
