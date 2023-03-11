@@ -90,12 +90,12 @@ namespace Chess
         }
         public void CreateLobby(string name)
         {
-            Helper.ChessClient = this;
+            //Helper.ChessClient = this;
             SendMsgToServer($"CreateLobby {name}");
         }
         public void ConnectLobby(string name)
         {
-            Helper.ChessClient = this;
+            //Helper.ChessClient = this;
             SendMsgToServer($"ConnectLobby {name}");
         }
         public async Task<List<string>> GetLobbies()

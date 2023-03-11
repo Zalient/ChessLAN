@@ -13,13 +13,8 @@ namespace Chess
     public partial class MultiplayerForm : Form
     {
         private ChessClient _client;
-        public static MultiplayerForm Instance;
         public MultiplayerForm()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
             InitializeComponent();
         }
         public ChessClient Client => _client;
@@ -48,12 +43,10 @@ namespace Chess
         }
         private void btnConnectLobby_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
             _client.ConnectLobby(lstLobbies.Items[lstLobbies.SelectedIndex].ToString());
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
             MessageBox.Show("Waiting for second player...");
             _client.CreateLobby(txtLobbyName.Text);
         }
