@@ -9,7 +9,6 @@ namespace Chess
 {
     public class ChessClient
     {
-        private PieceColour myColour;
         private TcpClient tcpClient;
         private Thread receiveMsgThread;
         public bool IsConnected { get { return tcpClient != null && tcpClient.Connected; } }

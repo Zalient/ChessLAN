@@ -13,3 +13,18 @@ C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHu
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.pdb
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.genruntimeconfig.cache
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ref\ChessServer.dll
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.exe
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.deps.json
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.runtimeconfig.json
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.dll
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.pdb
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.csproj.AssemblyReference.cache
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.AssemblyInfoInputs.cache
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.AssemblyInfo.cs
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.csproj.CoreCompileInputs.cache
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.dll
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\refint\ChessServer.dll
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.pdb
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.genruntimeconfig.cache
+C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ref\ChessServer.dll
