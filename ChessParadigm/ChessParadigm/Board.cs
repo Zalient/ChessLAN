@@ -116,6 +116,125 @@ namespace Chess
                 Add_Piece(new Pawn(_cells[1, i], PieceColour.Black), 1, i, 0);
             }
         }
+        public void Move(Cell pieceCell, Cell targetCell)
+        {
+            Board board = targetCell.BoardPtr;
+            if (board.IsSelecting == true && targetCell.IsMoveSelected == false)
+            {
+                if (pieceCell.Piece.IsPossibleMove(pieceCell, targetCell) == true)
+                {
+                    if (pieceCell != null)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            for (int j = 0; j < 8; j++)
+                            {
+                                if (pieceCell.Piece.IsPossibleMove(pieceCell, board.Cells[i, j]) == true)
+                                {
+                                    if (targetCell.Piece == null || targetCell.Piece.Colour != pieceCell.Piece.Colour)
+                                    {
+                                        board.Cells[i, j].Colour = board.Cells[i, j].Colour; //Remove colour modifications to cells (like highlighted moves)
+                                        board.Cells[pieceCell.X, pieceCell.Y].Colour = board.Cells[pieceCell.X, pieceCell.Y].Colour; //Remove SelectedCell highlight                               
+                                    }
+                                }
+                            }
+                        }
+                        if (targetCell.Piece == null || targetCell.Piece.Colour != pieceCell.Piece.Colour) //If no piece at new location or a capture possible at new location
+                        {
+                            board.Move_Piece(pieceCell, targetCell);
+                            pieceCell.IsMoveSelected = false;
+                            board.IsSelecting = false;
+
+                            if (targetCell.Piece.GetType() == typeof(Pawn)) //Check for promotion
+                            {
+                                if (targetCell.X == (targetCell.Piece.Colour == PieceColour.White ? 0 : 7))
+                                {
+                                    Piece newPiece = null;
+                                    while (newPiece == null)
+                                    {
+                                        PromotionForm promotionForm = new PromotionForm(targetCell);
+                                        promotionForm.ShowDialog();
+                                        newPiece = promotionForm.SelectedPiece;
+                                    }
+                                    board.Remove_Piece(targetCell.Piece, targetCell.X, targetCell.Y); //Capture own piece first
+                                    board.Add_Piece(newPiece, targetCell.X, targetCell.Y, 0);
+                                    targetCell.Piece.PossibleMoves = newPiece.FindPossibleMoves(targetCell);
+                                }
+                            }
+
+                            for (int k = 0; k < board.Pieces.Count; k++)
+                            {
+                                Piece piece = board.Pieces[k];
+                                if (piece.Colour != board.PlayerTurn)
+                                {
+                                    piece.PossibleMoves = piece.FindPossibleMoves(piece.Cell);
+                                }
+                            }
+                            var king = board.Pieces.FirstOrDefault(x => x.Colour == board.PlayerTurn && x.GetType() == typeof(King));
+                            if (board.IsKingInCheck(targetCell) == false)
+                            {
+                                board.Cells[king.Cell.X, king.Cell.Y].Colour = board.Cells[king.Cell.X, king.Cell.Y].Colour;
+                            }
+
+                            board.PlayerTurn = board.PlayerTurn == PieceColour.White ? PieceColour.Black : PieceColour.White; //Change player turn
+
+                            for (int k = 0; k < board.Pieces.Count; k++)
+                            {
+                                Piece piece = board.Pieces[k];
+                                if (piece.Colour == board.PlayerTurn)
+                                {
+                                    board.UpdateLegalMoves(piece.Cell);
+                                }
+                            }
+                            for (int k = 0; k < board.Pieces.Count; k++)
+                            {
+                                Piece piece = board.Pieces[k];
+                                if (piece.Colour != board.PlayerTurn) //Looks at enemy pieces
+                                {
+                                    piece.PossibleMoves = piece.FindPossibleMoves(piece.Cell);
+                                }
+                            }
+                            int moveCount = 0;
+                            foreach (Piece piece in board.Pieces)
+                            {
+                                if (piece.Colour == board.PlayerTurn) //Get ally pieces
+                                {
+                                    for (int i = 0; i < 8; i++)
+                                    {
+                                        for (int j = 0; j < 8; j++)
+                                        {
+                                            if (piece.IsPossibleMove(piece.Cell, board.Cells[i, j]))
+                                            {
+                                                if (board.Cells[i, j].Piece == null || board.Cells[i, j].Piece.Colour != piece.Colour) //Get number of moves of own team
+                                                {
+                                                    moveCount++;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            king = board.Pieces.FirstOrDefault(x => x.Colour == board.PlayerTurn && x.GetType() == typeof(King)); //Detect checkmate/stalemate
+                            if (board.IsKingInCheck(targetCell)) //If own king in check
+                            {
+                                board.Cells[king.Cell.X, king.Cell.Y].BackColor = ColorTranslator.FromHtml("#632d91"); //Highlight king location in purple when in check
+                                if (moveCount == 0)
+                                {
+                                    MessageBox.Show(board.PlayerTurn + " loses");
+                                }
+                            }
+                            else
+                            {
+                                if (moveCount == 0)
+                                {
+                                    MessageBox.Show("Stalemate");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         public void Add_Piece(Piece piece, int i, int j, int index)
         {
             this[i, j] = piece;

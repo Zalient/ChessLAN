@@ -53,7 +53,6 @@ namespace Chess
                     {
                         GameForm form = new GameForm();
                         Application.Run(form);
-                        Board.Instance.InitPieces();
                     }
                     if (message.Contains("Move"))
                     {

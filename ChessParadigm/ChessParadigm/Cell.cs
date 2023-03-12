@@ -78,7 +78,7 @@ namespace Chess
             Cell cell = (Cell)sender;
             Board board = cell.BoardPtr;
             
-            if (chessClient.Colour != board.PlayerTurn)
+            if (chessClient.Colour != board.PlayerTurn) //Ensures client colour matches player turn
             {
                 return;
             }
@@ -130,134 +130,16 @@ namespace Chess
         }
         private void OnMouse_Click(object sender, MouseEventArgs e)
         {
-            Cell cell = (Cell)sender;
-            Board board = cell.BoardPtr;
-            if (board.IsSelecting == true && cell.IsMoveSelected == false)
-            {
-                Cell pieceCell = board.SelectedCell;
-                if (pieceCell.Piece.IsPossibleMove(pieceCell, cell) == true)
-                {
-                    if (pieceCell != null)
-                    {
-                        for (int i = 0; i < 8; i++)
-                        {
-                            for (int j = 0; j < 8; j++)
-                            {
-                                if (pieceCell.Piece.IsPossibleMove(pieceCell, board.Cells[i, j]) == true)
-                                {
-                                    if (cell.Piece == null || cell.Piece.Colour != pieceCell.Piece.Colour)
-                                    {
-                                        board.Cells[i, j].Colour = board.Cells[i, j].Colour; //Remove colour modifications to cells (like highlighted moves)
-                                        board.Cells[pieceCell.X, pieceCell.Y].Colour = board.Cells[pieceCell.X, pieceCell.Y].Colour; //Remove SelectedCell highlight                               
-                                    }
-                                }
-                            }
-                        }
-                        if (cell.Piece == null || cell.Piece.Colour != pieceCell.Piece.Colour) //If no piece at new location or a capture possible at new location
-                        {
-                            board.Move_Piece(pieceCell, cell);
-                            pieceCell.IsMoveSelected = false;
-                            board.IsSelecting = false;
-
-                            if (cell.Piece.GetType() == typeof(Pawn)) //Check for promotion
-                            {                             
-                                if (cell.X == (cell.Piece.Colour == PieceColour.White ? 0 : 7))
-                                {
-                                    Piece newPiece = null;
-                                    while (newPiece == null)
-                                    {
-                                        PromotionForm promotionForm = new PromotionForm(cell);
-                                        promotionForm.ShowDialog();
-                                        newPiece = promotionForm.SelectedPiece;
-                                    }
-                                    board.Remove_Piece(cell.Piece, cell.X, cell.Y); //Capture own piece first
-                                    board.Add_Piece(newPiece, cell.X, cell.Y, 0);
-                                    cell.Piece.PossibleMoves = newPiece.FindPossibleMoves(cell);
-                                }
-                            }
-
-                            for (int k = 0; k < board.Pieces.Count; k++)
-                            {
-                                Piece piece = board.Pieces[k];
-                                if (piece.Colour != board.PlayerTurn)
-                                {
-                                    piece.PossibleMoves = piece.FindPossibleMoves(piece.Cell); 
-                                }
-                            }
-                            var king = board.Pieces.FirstOrDefault(x => x.Colour == board.PlayerTurn && x.GetType() == typeof(King));
-                            if (board.IsKingInCheck(cell) == false)
-                            {
-                                board.Cells[king.Cell.X, king.Cell.Y].Colour = board.Cells[king.Cell.X, king.Cell.Y].Colour;
-                            }
-
-                            KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
-                            KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(cell.X, cell.Y);
-                            chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
-
-                            if (board.PlayerTurn == PieceColour.White)
-                            {
-                                board.PlayerTurn = PieceColour.Black; //Black's turn after white
-                            }
-                            else
-                            {
-                                board.PlayerTurn = PieceColour.White; //White's turn after black
-                            }
-                            for (int k = 0; k < board.Pieces.Count; k++) 
-                            {
-                                Piece piece = board.Pieces[k];
-                                if (piece.Colour == board.PlayerTurn)
-                                {
-                                    board.UpdateLegalMoves(piece.Cell);
-                                }
-                            }
-                            for (int k = 0; k < board.Pieces.Count; k++) 
-                            {
-                                Piece piece = board.Pieces[k];
-                                if (piece.Colour != board.PlayerTurn) //Looks at enemy pieces
-                                {
-                                    piece.PossibleMoves = piece.FindPossibleMoves(piece.Cell);
-                                }
-                            }
-                            int moveCount = 0;
-                            foreach (Piece piece in board.Pieces)
-                            {
-                                if (piece.Colour == board.PlayerTurn) //Get ally pieces
-                                {
-                                    for (int i = 0; i < 8; i++)
-                                    {
-                                        for (int j = 0; j < 8; j++)
-                                        {
-                                            if (piece.IsPossibleMove(piece.Cell, board.Cells[i, j]))
-                                            {
-                                                if (board.Cells[i, j].Piece == null || board.Cells[i, j].Piece.Colour != piece.Colour) //Get number of moves of own team
-                                                {
-                                                    moveCount++;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            king = board.Pieces.FirstOrDefault(x => x.Colour == board.PlayerTurn && x.GetType() == typeof(King)); //Detect checkmate/stalemate
-                            if (board.IsKingInCheck(cell)) //If own king in check
-                            {
-                                board.Cells[king.Cell.X, king.Cell.Y].BackColor = ColorTranslator.FromHtml("#632d91"); //Highlight king location in purple when in check
-                                if (moveCount == 0)
-                                {
-                                    MessageBox.Show(board.PlayerTurn + " loses");
-                                }
-                            }
-                            else
-                            {
-                                if (moveCount == 0)
-                                {
-                                    MessageBox.Show("Stalemate");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            //Maybe something like Board.Move() here so that i can call move in client as well which would update the current player turn
+            //Reason why second device refuses to play moves is because a move has not been sent so it is eternally waiting for its move
+            //I.e. find out why move is not being played after being sent!!!!
+            Cell targetCell = (Cell)sender;
+            Board board = targetCell.BoardPtr;
+            Cell pieceCell = board.SelectedCell;
+            Board.Instance.Move(pieceCell, targetCell);
+            KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
+            KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(targetCell.X, targetCell.Y);
+            chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
         }
     }
 }
