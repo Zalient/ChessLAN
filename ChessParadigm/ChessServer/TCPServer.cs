@@ -72,7 +72,7 @@ namespace ChessServer
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Cant send message to {client.Client.RemoteEndPoint}\nwith err: {e.Message}");
+                Console.WriteLine($"Cannot send message to {client.Client.RemoteEndPoint}\nwith err: {e.Message}");
             }
         }
         public void CreateLobby(TcpClient lobbyHost, string lobbyName)

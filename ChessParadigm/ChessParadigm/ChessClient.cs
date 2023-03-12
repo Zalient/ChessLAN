@@ -49,7 +49,7 @@ namespace Chess
                     waitMsg = msg;
 
                     //Message received from server
-                    SendMsgToServer()
+                    SendMsgToServer($"Message received from server: {msg}");
                     if (msg == "Started")
                     {
                         GameForm form = new GameForm();
