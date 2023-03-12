@@ -61,7 +61,8 @@ namespace Chess
                         KeyValuePair<int, int> newMove = Helper.NotationToCoordinates(splittedMsg[2]); //Third component is new move
                         Cell pieceCell = Board.Instance.Cells[previousMove.Key, previousMove.Value];
                         Cell targetCell = Board.Instance.Cells[newMove.Key, newMove.Value];
-                        Board.Instance.Move(pieceCell, targetCell); 
+                        Board.Instance.Move(pieceCell, targetCell);
+                        SendMsgToServer("Move was received"); //Acts as a check
                     }
                 }
             }
@@ -90,12 +91,10 @@ namespace Chess
         }
         public void CreateLobby(string name)
         {
-            Helper.ChessClient = this;
             SendMsgToServer($"CreateLobby {name}");
         }
         public void ConnectLobby(string name)
         {
-            Helper.ChessClient = this;
             SendMsgToServer($"ConnectLobby {name}");
         }
         public async Task<List<string>> GetLobbies()

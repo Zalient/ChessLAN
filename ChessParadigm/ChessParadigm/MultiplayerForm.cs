@@ -47,11 +47,13 @@ namespace Chess
         {
             _client.ConnectLobby(lstLobbies.Items[lstLobbies.SelectedIndex].ToString());
             _client.Colour = PieceColour.Black;
+            Helper.ChessClient = _client;
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
             _client.CreateLobby(txtLobbyName.Text);
             _client.Colour = PieceColour.White;
+            Helper.ChessClient = _client;
             MessageBox.Show("Waiting for second player...");
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
