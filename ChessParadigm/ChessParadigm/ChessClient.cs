@@ -45,18 +45,19 @@ namespace Chess
                     var buffer = new byte[1024];
                     int received = await stream.ReadAsync(buffer, 0, 1024);
 
-                    var message = Encoding.UTF8.GetString(buffer, 0, received);
-                    waitMsg = message;
+                    var msg = Encoding.UTF8.GetString(buffer, 0, received);
+                    waitMsg = msg;
 
                     //Message received from server
-                    if (message == "Started")
+                    SendMsgToServer()
+                    if (msg == "Started")
                     {
                         GameForm form = new GameForm();
                         Application.Run(form);
                     }
-                    if (message.Contains("Move")) //This never seems to be reached?
+                    if (msg.Contains("Move")) //This never seems to be reached?
                     {
-                        string[] splittedMsg = message.Split(' ');
+                        string[] splittedMsg = msg.Split(' ');
                         KeyValuePair<int, int> previousMove = Helper.NotationToCoordinates(splittedMsg[1]); //Second component is previous move
                         KeyValuePair<int, int> newMove = Helper.NotationToCoordinates(splittedMsg[2]); //Third component is new move
                         Cell pieceCell = Board.Instance.Cells[previousMove.Key, previousMove.Value];
