@@ -13,10 +13,7 @@ namespace ChessServer
         private TcpListener server;
         private Thread connectionHandler;
         private List<Thread> msgHandlers = new List<Thread>();
-        private List<TcpClient> _clients = new List<TcpClient>();
         private List<Lobby> _lobbies = new List<Lobby>();
-        public int ActiveConnectionsCount => _clients.Count;
-        public List<TcpClient> Clients => _clients;
         public List<Lobby> Lobbies => _lobbies;
         public TCPServer()
         {
@@ -37,7 +34,6 @@ namespace ChessServer
             {
                 var tcpClient = await server.AcceptTcpClientAsync(); //Tcp client is the accepted connection request
                 Console.WriteLine($"Connection: {tcpClient.Client.RemoteEndPoint}");
-                _clients.Add(tcpClient);
 
                 Thread msgHandler = new Thread(() => HandleClientMsgs(tcpClient));
                 msgHandler.Name = tcpClient.Client.RemoteEndPoint.ToString();
@@ -63,7 +59,6 @@ namespace ChessServer
             catch
             {
                 Console.WriteLine(client.Client.RemoteEndPoint + " Has been disconnected");
-                _clients.Remove(client);
             }
         }
         public async void SendMsgToClient(TcpClient client, string msg) //After sending message to server, server has to send message back to other client
