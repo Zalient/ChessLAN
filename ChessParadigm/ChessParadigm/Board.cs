@@ -144,17 +144,6 @@ namespace Chess
                 this.Remove_Piece(previousCell.Piece, previousCell.X, previousCell.Y);
             }
         }
-        public KeyValuePair<int, int> NotationToCoordinates(string notation)
-        {
-            List<string> a = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h" };
-            KeyValuePair<int, int> coordinates = new KeyValuePair<int, int>(int.Parse(notation[1].ToString()), a.FindIndex(x => x == notation[0].ToString()));
-            return coordinates;
-        }
-        public string CoordinatesToNotation(KeyValuePair<int, int> coordinates)
-        {
-            string[] a = new string[8] { "a", "b", "c", "d", "e", "f", "g", "h" };
-            return a[coordinates.Value] + coordinates.Key;
-        }
         public bool IsKingInCheck(Cell cell) //Identifies whether player's king is in check on their turn
         {
             Board board = cell.BoardPtr;

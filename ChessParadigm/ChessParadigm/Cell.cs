@@ -247,7 +247,7 @@ namespace Chess
                             }
                             KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
                             KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(cell.X, cell.Y);
-                            chessClient.SendMsgToServer($"Move {Board.Instance.CoordinatesToNotation(previousMove)}&{Board.Instance.CoordinatesToNotation(newMove)}");
+                            chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}");
                         }
                     }
                 }

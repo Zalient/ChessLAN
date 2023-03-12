@@ -47,8 +47,8 @@ namespace Chess
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Waiting for second player...");
             _client.CreateLobby(txtLobbyName.Text);
+            MessageBox.Show("Waiting for second player...");
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
         {

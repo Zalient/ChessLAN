@@ -57,8 +57,8 @@ namespace Chess
                     if (message.Contains("Move"))
                     {
                         string[] splittedMsg = message.Split(' ');
-                        KeyValuePair<int, int> previousMove = Board.Instance.NotationToCoordinates(splittedMsg[1]); //Second component is previous move
-                        KeyValuePair<int, int> newMove = Board.Instance.NotationToCoordinates(splittedMsg[2]); //Third component is new move
+                        KeyValuePair<int, int> previousMove = Helper.NotationToCoordinates(splittedMsg[1]); //Second component is previous move
+                        KeyValuePair<int, int> newMove = Helper.NotationToCoordinates(splittedMsg[2]); //Third component is new move
                         Cell pieceCell = Board.Instance.Cells[previousMove.Key, previousMove.Value];
                         Cell targetCell = Board.Instance.Cells[newMove.Key, newMove.Value];
                         Board.Instance.Move_Piece(pieceCell, targetCell); //Move the pieces at these cells 
@@ -90,12 +90,12 @@ namespace Chess
         }
         public void CreateLobby(string name)
         {
-            //Helper.ChessClient = this;
+            Helper.ChessClient = this;
             SendMsgToServer($"CreateLobby {name}");
         }
         public void ConnectLobby(string name)
         {
-            //Helper.ChessClient = this;
+            Helper.ChessClient = this;
             SendMsgToServer($"ConnectLobby {name}");
         }
         public async Task<List<string>> GetLobbies()
