@@ -55,9 +55,9 @@ namespace ChessServer
                     var buffer = new byte[1024];
                     int received = await stream.ReadAsync(buffer, 0, 1024);
 
-                    var message = Encoding.UTF8.GetString(buffer, 0, received); //Decode sequence of bytes to a message
-                    Console.WriteLine($"Message received: \"{message}\" from: {client.Client.RemoteEndPoint}");
-                    CommandHandler.Handler(message, client); //Use command handler to decide what the message should do
+                    var msg = Encoding.UTF8.GetString(buffer, 0, received); //Decode sequence of bytes to a message
+                    Console.WriteLine($"Message received: \"{msg}\" from: {client.Client.RemoteEndPoint}");
+                    CommandHandler.Handler(msg, client); //Use command handler to decide what the message should do
                 }
             }
             catch
@@ -73,6 +73,7 @@ namespace ChessServer
                 var stream = client.GetStream();
                 byte[] byteMsg = Encoding.UTF8.GetBytes(msg);
                 await stream.WriteAsync(byteMsg, 0, byteMsg.Length); //Send message
+                Console.WriteLine($"Message sent: \"{msg}\" to: {client.Client.RemoteEndPoint}"); //Message check
             }
             catch (Exception e)
             {

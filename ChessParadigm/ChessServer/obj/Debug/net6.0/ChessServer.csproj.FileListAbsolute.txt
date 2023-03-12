@@ -23,3 +23,8 @@ C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHu
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.dll
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\refint\ChessServer.dll
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.pdb
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.deps.json
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.runtimeconfig.json
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\bin\Debug\net6.0\ChessServer.pdb
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ChessServer.genruntimeconfig.cache
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessServer\obj\Debug\net6.0\ref\ChessServer.dll

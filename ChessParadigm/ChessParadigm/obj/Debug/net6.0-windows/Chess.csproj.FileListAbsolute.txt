@@ -61,7 +61,6 @@ C:\Users\dclarke\Source\Repos\ChessLAN\Chess\ChessParadigm\obj\Debug\net6.0-wind
 C:\Users\dclarke\Source\Repos\ChessLAN\Chess\ChessParadigm\obj\Debug\net6.0-windows\Chess.pdb
 C:\Users\dclarke\Source\Repos\ChessLAN\Chess\ChessParadigm\obj\Debug\net6.0-windows\Chess.genruntimeconfig.cache
 C:\Users\dclarke\Source\Repos\ChessLAN\Chess\ChessParadigm\obj\Debug\net6.0-windows\ref\Chess.dll
-C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.dll
 C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.exe
 C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.deps.json
 C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.runtimeconfig.json
@@ -86,6 +85,8 @@ C:\Users\Zacha\Source\Repos\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.exe
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.deps.json
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.runtimeconfig.json
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.dll
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\bin\Debug\net6.0-windows\Chess.pdb
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\Chess.csproj.AssemblyReference.cache
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\Chess.Cell.resources
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\Chess.GameForm.resources
@@ -101,3 +102,4 @@ C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHu
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\refint\Chess.dll
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\Chess.pdb
 C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\Chess.genruntimeconfig.cache
+C:\Users\dclarke\OneDrive - Hills Road Sixth Form College\Computer Science\GitHub\ChessLAN\ChessParadigm\ChessParadigm\obj\Debug\net6.0-windows\ref\Chess.dll

@@ -27,7 +27,12 @@ namespace Chess
         public ChessClient ChessClient { get; set; }
         public Cell SelectedCell { get; set; }
         public bool IsSelecting { get; set; }
-        public PieceColour PlayerTurn { get; set; }
+        private PieceColour _playerTurn = PieceColour.White;
+        public PieceColour PlayerTurn
+        {
+            get { return _playerTurn; }
+            set { _playerTurn = value; }
+        }
         public List<Piece> Pieces { get; set; }
         public Cell[,] Cells => _cells; //Read-only
         public Piece this[int i, int j] //Add defined piece to board itself

@@ -14,7 +14,6 @@ namespace ChessServer
         public LobbyMember player2;
         public bool isStarted;
         public readonly string lobbyName;
-        public readonly int lobbyId;
 
         public Lobby(TCPServer server, TcpClient player1, string lobbyName)
         {
