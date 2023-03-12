@@ -13,11 +13,13 @@ namespace Chess
     public partial class MultiplayerForm : Form
     {
         private ChessClient _client;
+        private PieceColour _chessClientColour;
         public MultiplayerForm()
         {
             InitializeComponent();
         }
         public ChessClient Client => _client;
+        public PieceColour ChessClientColour => _chessClientColour;
         public void SetConnectionStatus(bool connected)
         {
             if (connected)
@@ -44,10 +46,12 @@ namespace Chess
         private void btnConnectLobby_Click(object sender, EventArgs e)
         {
             _client.ConnectLobby(lstLobbies.Items[lstLobbies.SelectedIndex].ToString());
+            _client.Colour = PieceColour.Black;
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
             _client.CreateLobby(txtLobbyName.Text);
+            _client.Colour = PieceColour.White;
             MessageBox.Show("Waiting for second player...");
         }
         private async void btnRefresh_Click(object sender, EventArgs e)

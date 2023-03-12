@@ -12,6 +12,7 @@ namespace Chess
         private TcpClient tcpClient;
         private Thread receiveMsgThread;
         public bool IsConnected { get { return tcpClient != null && tcpClient.Connected; } }
+        public PieceColour Colour { get; set; }
         private string waitMsg;
         public async Task<bool> Connect(string ip)
         {
@@ -91,6 +92,7 @@ namespace Chess
         public void CreateLobby(string name)
         {
             Helper.ChessClient = this;
+            Helper.ChessClientColour = this
             SendMsgToServer($"CreateLobby {name}");
         }
         public void ConnectLobby(string name)

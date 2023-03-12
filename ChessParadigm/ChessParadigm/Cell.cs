@@ -77,7 +77,11 @@ namespace Chess
         {
             Cell cell = (Cell)sender;
             Board board = cell.BoardPtr;
-
+            
+            if (chessClient.Colour != board.PlayerTurn)
+            {
+                return;
+            }
             if (cell.Piece != null) //Only select cells with pieces
             {
                 foreach (Piece piece in board.Pieces) //Ensure IsKingInCheck remains true after deselecting a piece that can stop the check (this happens because possiblemoves of the piece are altered)
@@ -185,6 +189,11 @@ namespace Chess
                             {
                                 board.Cells[king.Cell.X, king.Cell.Y].Colour = board.Cells[king.Cell.X, king.Cell.Y].Colour;
                             }
+
+                            KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
+                            KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(cell.X, cell.Y);
+                            chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
+
                             if (board.PlayerTurn == PieceColour.White)
                             {
                                 board.PlayerTurn = PieceColour.Black; //Black's turn after white
@@ -245,9 +254,6 @@ namespace Chess
                                     MessageBox.Show("Stalemate");
                                 }
                             }
-                            KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
-                            KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(cell.X, cell.Y);
-                            chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}");
                         }
                     }
                 }
