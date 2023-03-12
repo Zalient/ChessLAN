@@ -50,7 +50,7 @@ namespace ChessServer
                     }
                 }
             }
-            Console.WriteLine($"Not handled message: {msg}");
+            Console.WriteLine($"Not handled message: \"{msg}\"");
         }
     }
 }
