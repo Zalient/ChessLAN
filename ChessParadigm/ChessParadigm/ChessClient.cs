@@ -92,7 +92,6 @@ namespace Chess
         public void CreateLobby(string name)
         {
             Helper.ChessClient = this;
-            Helper.ChessClientColour = this
             SendMsgToServer($"CreateLobby {name}");
         }
         public void ConnectLobby(string name)
