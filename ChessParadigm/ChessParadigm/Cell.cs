@@ -136,10 +136,19 @@ namespace Chess
             Cell targetCell = (Cell)sender;
             Board board = targetCell.BoardPtr;
             Cell pieceCell = board.SelectedCell;
-            Board.Instance.Move(pieceCell, targetCell);
-            KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
-            KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(targetCell.X, targetCell.Y);
-            chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
+            if (board.IsSelecting == true && targetCell.IsMoveSelected == false)
+            {
+                if (pieceCell.Piece.IsPossibleMove(pieceCell, targetCell) == true)
+                {
+                    if (pieceCell != null)
+                    {
+                        Board.Instance.Move(pieceCell, targetCell);
+                        KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
+                        KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(targetCell.X, targetCell.Y);
+                        chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
+                    }
+                }
+            }          
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Chess
                         KeyValuePair<int, int> newMove = Helper.NotationToCoordinates(splittedMsg[2]); //Third component is new move
                         Cell pieceCell = Board.Instance.Cells[previousMove.Key, previousMove.Value];
                         Cell targetCell = Board.Instance.Cells[newMove.Key, newMove.Value];
-                        Board.Instance.Move_Piece(pieceCell, targetCell); //Move the pieces at these cells 
+                        Board.Instance.Move(pieceCell, targetCell); 
                     }
                 }
             }
