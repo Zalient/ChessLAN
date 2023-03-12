@@ -66,7 +66,10 @@ namespace Chess
                     }
                 }
             }
-            catch (Exception) { }
+            catch (Exception e)
+            {
+                SendMsgToServer($"Client could not receive message with err: {e.Message}"); //Check if client is receiving messages
+            }
         }
         private async Task<string> AwaitMsgResponse(string msg)
         {
