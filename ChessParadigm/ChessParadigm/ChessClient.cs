@@ -49,7 +49,7 @@ namespace Chess
                     waitMsg = msg;
 
                     //Message received from server
-                    SendMsgToServer($"Message received from server: \"{msg}\" - Colour: {this.Colour}"); //Check if client receiving messages
+                    SendMsgToServer($"Message received from server: \"{msg}\""); //Check if client receiving messages
                     if (msg == "Started")
                     {
                         GameForm form = new GameForm();
