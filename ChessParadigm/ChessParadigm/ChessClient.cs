@@ -56,7 +56,7 @@ namespace Chess
                         Board.Instance.InitPieces();
                         MultiplayerForm.Instance.Hide();
                     }
-                    if (msg.Contains("Move")) //This never seems to be reached?
+                    if (msg.Contains("Move"))
                     {
                         //Board.Instance.Add_Piece(new Queen(Board.Instance.Cells[3, 0], this.Colour), 3, 0, 0);
                         //SendMsgToServer("Move was received"); //Acts as a check
