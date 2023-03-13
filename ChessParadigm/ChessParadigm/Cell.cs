@@ -141,10 +141,13 @@ namespace Chess
                 {
                     if (pieceCell != null)
                     {
-                        Board.Instance.Move(pieceCell, targetCell);
-                        KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
-                        KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(targetCell.X, targetCell.Y);
-                        Helper.ChessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
+                        if (targetCell.Piece == null || pieceCell.Colour != targetCell.Colour)
+                        {
+                            Board.Instance.Move(pieceCell, targetCell);
+                            KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
+                            KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(targetCell.X, targetCell.Y);
+                            Helper.ChessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
+                        }
                     }
                 }
             }          
