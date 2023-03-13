@@ -15,7 +15,10 @@ namespace Chess
         public GameForm()
         {
             InitializeComponent();
-            this.Size = new System.Drawing.Size(1000, 800);
+            this.Size = new System.Drawing.Size(1200, 800);
+            this.BackColor = ColorTranslator.FromHtml("#404040");
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(0, 0);
             _ = new Board(this);
         }
 

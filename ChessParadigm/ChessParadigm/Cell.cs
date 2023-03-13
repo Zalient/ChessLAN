@@ -78,7 +78,7 @@ namespace Chess
             Cell cell = (Cell)sender;
             Board board = cell.BoardPtr;
             
-            if (chessClient.Colour != board.PlayerTurn) //Ensures client colour matches player turn
+            if (chessClient != null && chessClient.Colour != board.PlayerTurn) //Ensures client colour matches player turn
             {
                 return;
             }

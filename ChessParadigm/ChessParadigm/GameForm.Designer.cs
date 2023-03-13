@@ -58,6 +58,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "GameForm";
+            StartPosition = FormStartPosition.Manual;
             Text = "Chess";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

@@ -20,7 +20,6 @@ namespace Chess
                 Instance = this;
             }
             this._gameForm = GameForm;
-            this.ChessClient = Helper.ChessClient;
             InitBoard();
         }
         public ChessClient ChessClient { get; set; }
@@ -42,13 +41,13 @@ namespace Chess
         public void InitBoard()
         {
             this.Pieces = new List<Piece>();
-            int left = this._gameForm.Size.Width / 2 - (4 * _cellWidth);
+            int left = 70;
             int top = 50;
             CellColour colour = CellColour.White;
 
             for (int i = 0; i < 8; i++)
             {
-                left = this._gameForm.Size.Width / 2 - (4 * _cellWidth);
+                left = 70;
                 for (int j = 0; j < 8; j++)
                 {
                     Cell cell = new Cell(i, j, colour, this);
