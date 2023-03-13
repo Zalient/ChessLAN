@@ -47,7 +47,6 @@ namespace Chess
                     int received = await stream.ReadAsync(buffer, 0, 1024);
 
                     var msg = Encoding.UTF8.GetString(buffer, 0, received);
-                    waitMsg = msg;
 
                     //Message received from server
                     //SendMsgToServer($"Message received from server: \"{msg}\""); //Check if client receiving messages
