@@ -5,7 +5,6 @@ namespace Chess
     public enum CellColour { White, Black };
     public class Cell : PictureBox
     {
-        private ChessClient chessClient = Board.Instance.ChessClient;
         public Cell(int x, int y, CellColour colour, Board board, Piece piece = null)
         {
             X = x;
@@ -78,7 +77,7 @@ namespace Chess
             Cell cell = (Cell)sender;
             Board board = cell.BoardPtr;
             
-            if (chessClient == null || chessClient.Colour != board.PlayerTurn) //Ensures client colour matches player turn
+            if (Helper.ChessClient == null || Helper.ChessClient.Colour != board.PlayerTurn) //Ensures client colour matches player turn
             {
                 return;
             }
@@ -145,7 +144,7 @@ namespace Chess
                         Board.Instance.Move(pieceCell, targetCell);
                         KeyValuePair<int, int> previousMove = new KeyValuePair<int, int>(pieceCell.X, pieceCell.Y);
                         KeyValuePair<int, int> newMove = new KeyValuePair<int, int>(targetCell.X, targetCell.Y);
-                        chessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
+                        Helper.ChessClient.SendMsgToServer($"Move {Helper.CoordinatesToNotation(previousMove)}&{Helper.CoordinatesToNotation(newMove)}"); //Send move
                     }
                 }
             }          

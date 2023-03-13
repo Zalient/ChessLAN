@@ -53,7 +53,6 @@ namespace Chess
                     if (msg == "Started")
                     {
                         Board.Instance.InitPieces();
-                        Board.Instance.ChessClient = Helper.ChessClient;
                     }
                     if (msg.Contains("Move")) //This never seems to be reached?
                     {

@@ -13,12 +13,10 @@ namespace Chess
     public partial class MultiplayerForm : Form
     {
         private ChessClient _client;
-        private PieceColour _chessClientColour;
         public MultiplayerForm()
         {
             InitializeComponent();
         }
-        public PieceColour ChessClientColour => _chessClientColour;
         public void SetConnectionStatus(bool connected)
         {
             if (connected)
