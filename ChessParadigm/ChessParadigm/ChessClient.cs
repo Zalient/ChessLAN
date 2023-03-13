@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Chess.Pieces;
 
 namespace Chess
 {
@@ -53,16 +54,18 @@ namespace Chess
                     if (msg == "Started")
                     {
                         Board.Instance.InitPieces();
+                        MultiplayerForm.Instance.Hide();
                     }
                     if (msg.Contains("Move")) //This never seems to be reached?
                     {
+                        //Board.Instance.Add_Piece(new Queen(Board.Instance.Cells[3, 0], this.Colour), 3, 0, 0);
+                        //SendMsgToServer("Move was received"); //Acts as a check
                         string[] splittedMsg = msg.Split(' ');
                         KeyValuePair<int, int> previousMove = Helper.NotationToCoordinates(splittedMsg[1]); //Second component is previous move
                         KeyValuePair<int, int> newMove = Helper.NotationToCoordinates(splittedMsg[2]); //Third component is new move
                         Cell pieceCell = Board.Instance.Cells[previousMove.Key, previousMove.Value];
                         Cell targetCell = Board.Instance.Cells[newMove.Key, newMove.Value];
                         Board.Instance.Move(pieceCell, targetCell);
-                        SendMsgToServer("Move was received"); //Acts as a check
                     }
                 }
             }

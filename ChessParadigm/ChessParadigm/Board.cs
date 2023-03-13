@@ -118,6 +118,12 @@ namespace Chess
             {
                 Add_Piece(new Pawn(_cells[1, i], PieceColour.Black), 1, i, 0);
             }
+
+            //Initialise piece moves
+            foreach (Piece piece in this.Pieces)
+            {
+                piece.PossibleMoves = piece.FindPossibleMoves(piece.Cell);
+            }
         }
         public void Move(Cell pieceCell, Cell targetCell)
         {

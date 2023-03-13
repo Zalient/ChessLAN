@@ -13,9 +13,14 @@ namespace Chess
     public partial class MultiplayerForm : Form
     {
         private ChessClient _client;
+        public static MultiplayerForm Instance;
         public MultiplayerForm()
         {
             InitializeComponent();
+            if (Instance == null)
+            {
+                Instance = this;
+            }
         }
         public void SetConnectionStatus(bool connected)
         {
