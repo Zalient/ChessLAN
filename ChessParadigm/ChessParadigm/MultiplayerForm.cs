@@ -18,7 +18,6 @@ namespace Chess
         {
             InitializeComponent();
         }
-        public ChessClient Client => _client;
         public PieceColour ChessClientColour => _chessClientColour;
         public void SetConnectionStatus(bool connected)
         {

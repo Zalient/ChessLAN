@@ -1,4 +1,3 @@
 using Chess;
 
-MultiplayerForm form = new();
-Application.Run(form);
+Application.Run(new GameForm());

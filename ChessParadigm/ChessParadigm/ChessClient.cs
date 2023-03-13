@@ -52,8 +52,7 @@ namespace Chess
                     SendMsgToServer($"Message received from server: \"{msg}\""); //Check if client receiving messages
                     if (msg == "Started")
                     {
-                        GameForm form = new GameForm();
-                        Application.Run(form);
+                        Board.Instance.InitPieces();
                     }
                     if (msg.Contains("Move")) //This never seems to be reached?
                     {
