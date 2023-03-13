@@ -39,6 +39,7 @@
             btnCreate = new Button();
             btnConnectLobby = new Button();
             btnRefresh = new Button();
+            lblWaiting = new Label();
             SuspendLayout();
             // 
             // lstLobbies
@@ -99,7 +100,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(516, 359);
+            label3.Location = new Point(516, 308);
             label3.Name = "label3";
             label3.Size = new Size(121, 25);
             label3.TabIndex = 6;
@@ -108,7 +109,7 @@
             // txtLobbyName
             // 
             txtLobbyName.Enabled = false;
-            txtLobbyName.Location = new Point(516, 387);
+            txtLobbyName.Location = new Point(516, 336);
             txtLobbyName.Name = "txtLobbyName";
             txtLobbyName.Size = new Size(150, 31);
             txtLobbyName.TabIndex = 7;
@@ -116,7 +117,7 @@
             // btnCreate
             // 
             btnCreate.Enabled = false;
-            btnCreate.Location = new Point(687, 387);
+            btnCreate.Location = new Point(687, 336);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(85, 31);
             btnCreate.TabIndex = 8;
@@ -145,11 +146,20 @@
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
             // 
+            // lblWaiting
+            // 
+            lblWaiting.AutoSize = true;
+            lblWaiting.Location = new Point(516, 392);
+            lblWaiting.Name = "lblWaiting";
+            lblWaiting.Size = new Size(0, 25);
+            lblWaiting.TabIndex = 11;
+            // 
             // MultiplayerForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblWaiting);
             Controls.Add(btnRefresh);
             Controls.Add(btnConnectLobby);
             Controls.Add(btnCreate);
@@ -180,5 +190,6 @@
         private Button btnCreate;
         private Button btnConnectLobby;
         private Button btnRefresh;
+        private Label lblWaiting;
     }
 }

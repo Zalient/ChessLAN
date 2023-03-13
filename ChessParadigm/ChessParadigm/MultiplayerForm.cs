@@ -53,7 +53,7 @@ namespace Chess
             _client.CreateLobby(txtLobbyName.Text);
             _client.Colour = PieceColour.White;
             Helper.ChessClient = _client;
-            MessageBox.Show("Waiting for second player...");
+            lblWaiting.Text = "Waiting for second player...";
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
         {
